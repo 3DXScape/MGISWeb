@@ -1,0 +1,30 @@
+@media (max-width: 1199px){
+.about-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #1a4a8a;
+    border-top: 4px solid #1a4a8a;
+    border-bottom: 4px solid #1a4a8a;
+    border-left: 4px solid #1a4a8a;
+    border-right: 4px solid #1a4a8a;
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    max-width: 90%;
+}
+}
+@media (min-width: 1200px){
+.about-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #1a4a8a;
+    border-top: 4px solid #1a4a8a;
+    border-bottom: 4px solid #1a4a8a;
+    border-left: 4px solid #1a4a8a;
+    border-right: 4px solid #1a4a8a;
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    max-width: 50%;
+}
+}

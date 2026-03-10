@@ -1,0 +1,38 @@
+﻿@page "/about"
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+<PageTitle>About</PageTitle>
+
+<div class="about-box">
+    <p>
+        <strong>OpenSitePlan</strong> is an open-source standards activity sponsored by MobileGIS Ltd.
+    </p>
+    <p>
+        The work builds on a series of standards
+         initiatives beginning with ANSI X3H2 SQL 
+         in 1988,
+        followed by the IEEE 1278 Distributed Interactive Simulation (DIS) standard, 
+        ISO TC 204 WG3 Intelligent Transportation Systems, in 1992, 
+        the Open Geospatial Consortium (OGC) Simple Features
+        for OLE/COM specification in 1999, 
+        OGC Open Location Services (OpenLS) in 1999, 
+        OGC CityGML in 2012, OGC GeoPose in 2022, 
+        Metaverse Standards Forum (MSF) Spatial Computing.
+    </p>
+    <p>
+        This activity has led or made significant contributions to several key standards and related activities, including
+        SQL-92, IEEE 1278 DIS, OGC OpenLS 1.0, 
+        OGC CityGML 2.0, OGC CityGML 3.0, 
+        OGC GeoPose 1.0. and the MetaVerse Standards Forum
+        Spatial Computing Working Group.
+    </p>
+</div>
+
+@code {
+    void NavigateToPage()
+    {
+        navigationManager.NavigateTo("/about");
+    }
+
+}
