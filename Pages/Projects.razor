@@ -5,9 +5,7 @@
 
 <h1>Projects</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
-
-@if (forecasts == null)
+@if (projects == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -17,19 +15,17 @@ else
         <thead>
             <tr>
                 <th>Date</th>
-                <th aria-label="Temperature in Celsius">Temp. (C)</th>
-                <th aria-label="Temperature in Fahrenheit">Temp. (F)</th>
-                <th>Summary</th>
+                <th aria-label="Name">Name</th>
+                <th aria-label="Summary">Summary</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var project in projects)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@project.Date.ToShortDateString()</td>
+                    <td>@project.Name</td>
+                    <td>@project.Summary</td>
                 </tr>
             }
         </tbody>
@@ -37,21 +33,20 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private ProjectDescription[]? projects;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        projects = await Http.GetFromJsonAsync<ProjectDescription[]>("sample-data/weather.json");
     }
 
-    public class WeatherForecast
+    public class ProjectDescription
     {
         public DateOnly Date { get; set; }
 
-        public int TemperatureC { get; set; }
+        public string? Name { get; set; }
 
         public string? Summary { get; set; }
 
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 }

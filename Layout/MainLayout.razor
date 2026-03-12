@@ -9,4 +9,25 @@
             @Body
         </article>
     </main>
+
+    <footer class="site-footer">
+        <button class="cookie-prefs-link" @onclick="ResetConsent">Cookie preferences</button>
+    </footer>
 </div>
+
+<CookieConsent @ref="_cookieConsent" />
+
+@code {
+    private CookieConsent? _cookieConsent;
+
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+
+    private async Task ResetConsent()
+    {
+        await JS.InvokeVoidAsync("localStorage.removeItem", "cookie_consent");
+        if (_cookieConsent is not null)
+        {
+            _cookieConsent.ShowBanner();
+        }
+    }
+}

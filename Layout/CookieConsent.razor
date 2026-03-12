@@ -1,0 +1,59 @@
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+@if (_show)
+{
+    <div class="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie consent">
+        <div class="cookie-banner__content">
+            <p class="cookie-banner__text">
+                We use cookies to make this site work and to understand how it is used.
+                <strong>Essential cookies</strong> are always on. We only set
+                <strong>analytics cookies</strong> if you agree — they help us improve
+                the site. You can change your choice at any time.
+                @* Add a link here if you have a privacy/cookie policy page *@
+            </p>
+            <div class="cookie-banner__actions">
+                <button class="btn btn-primary cookie-banner__btn"
+                        @onclick="() => SaveChoice(true)">
+                    Accept all cookies
+                </button>
+                <button class="btn btn-outline-secondary cookie-banner__btn"
+                        @onclick="() => SaveChoice(false)">
+                    Essential cookies only
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private const string StorageKey = "cookie_consent";
+    private bool _show;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        var stored = await JS.InvokeAsync<string?>("localStorage.getItem", StorageKey);
+        if (stored is null)
+        {
+            _show = true;
+            StateHasChanged();
+        }
+    }
+
+    public void ShowBanner()
+    {
+        _show = true;
+        StateHasChanged();
+    }
+
+    private async Task SaveChoice(bool acceptAll)
+    {
+        var value = acceptAll ? "all" : "essential";
+        await JS.InvokeVoidAsync("localStorage.setItem", StorageKey, value);
+        _show = false;
+    }
+
+    public ValueTask DisposeAsync() => ValueTask.CompletedTask;
+}
