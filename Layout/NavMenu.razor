@@ -1,13 +1,17 @@
 <nav class="navbar navbar-dark top-row px-3">
     <a class="navbar-brand" href="">
-        <img src="OSP_Logo.png" alt="OpenSitePlan logo" class="nav-logo" />
+        <img src="MGIS_Logo.png" alt="MobileGIS logo" class="nav-logo" />
     </a>
+    <div class="nav-name">MobileGIS Ltd</div>
     <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="@NavMenuCssClass nav-horizontal">
         <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
             <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+        </NavLink>
+        <NavLink class="nav-link" href="services" Match="NavLinkMatch.All">
+            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Services
         </NavLink>
         <NavLink class="nav-link" href="projects" Match="NavLinkMatch.All">
             <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Projects
