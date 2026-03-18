@@ -1,7 +1,10 @@
 <nav class="navbar navbar-dark top-row px-3">
     <a class="navbar-brand" href="">
-        <img src="OSP_Logo.png" alt="OpenSitePlan logo" class="nav-logo" />
+        <img src="MGIS_Logo.png" alt="MobileGIS Ltd logo" class="nav-logo" />
     </a>
+    <div class="navbar-name">
+    MobileGIS Ltd
+    </div>
     <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,6 +17,12 @@
         </NavLink>
         <NavLink class="nav-link" href="about" Match="NavLinkMatch.All">
             <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> About
+        </NavLink>
+        <NavLink class="nav-link" href="https://opensiteplan.org" Match="NavLinkMatch.All" target="_blank" rel="noopener noreferrer">
+            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> OpenSitePlan
+        </NavLink>
+        <NavLink class="nav-link" href="https://polytopeinc.com" Match="NavLinkMatch.All" target="_blank" rel="noopener noreferrer">
+            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Polytope Services
         </NavLink>
     </div>
 </nav>
